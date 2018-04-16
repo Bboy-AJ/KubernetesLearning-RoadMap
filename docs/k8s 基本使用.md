@@ -4,7 +4,7 @@
 
 ​        本文档旨在描述k8s的基本使用，帮助用户快速上手k8s部署项目。概况图如下：
 
-![k8s基本使用](C:\Users\xb\Desktop\k8s分享文档\k8s基本使用.png)
+![k8s基本使用](..\images\k8s基本使用.png)
 
 
 
@@ -23,7 +23,7 @@
 
 在这里，我们主要介绍下面几种资源对象。
 
-![资源](C:\Users\xb\Desktop\k8s分享文档\资源.png)
+![资源](..\images\资源.png)
 
 ### 1. 1  Pod
 
@@ -142,13 +142,51 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 ## 2. yaml
 
+​       yaml这种语言是以数据作为中心，而不是以置标语言为重点，是一种直观的能被电脑识别的数据序列化格式，是一个可读性高并且容易被人类阅读，容易和脚本语言交互，用来表达资料序列的编程语言。
+
+​      Yaml语法规则：
+
+- ​      大小写敏感
+- ​      使用缩进表示层级关系
+- ​      缩进时不允许使用Tal键，只允许使用空格
+- ​      缩进的空格数目不重要，只要相同层级的元素左对齐即可
+- ​      “#”表示注释
+
+​    在kubenetes中只需要知道两种结构类型即可：
+
+-    Lists
+-    Map
+
+​     使用Yaml用于k8s的定义带来的好处包括：
+
+- ​     便捷性：不必添加大量的参数到命令行中执行命令
+- ​     可维护性：Yaml文件可以通过源头控制，跟踪每次操作
+- ​     灵活性：Yaml可以创建比命令行更加复杂的结果
+
+ 
+
 ## 3. 操作
 
 ###           3.1 dashbord
 
+​       ![dashbord](..\images\dashbord.png)
+
+常用操作：
+
+​        将创建好的yaml文件通过Create按钮创建所需资源项目。
+
 ###           3.2  kubectl
 
-## 
+##          
+
+| 描述   | 语法                                       | 举例                                     |
+| ---- | ---------------------------------------- | -------------------------------------- |
+| 创建   | $ create -f FILENAME                     | kubectl create -f my.yaml              |
+| 删除   | $ delete ([-f FILENAME] \| TYPE [(NAME \| -l label \| --all)]) | 删除所有pods：kubectl delete pods --all     |
+| 修改   | $ edit (RESOURCE/NAME \| -f FILENAME)    | 修改service:  kubectl edit svc/myservice |
+| 查询   | get                                      | 查询所有pod:  kubectl get pods             |
+
+
 
 ## 4. Grafana
 
@@ -162,3 +200,4 @@ kubenetes中文社区：http://docs.kubernetes.org.cn/
 
 宋净超：https://jimmysong.io/kubernetes-handbook/
 
+kubenetes之yaml文件：https://blog.csdn.net/phantom_111/article/details/79427144

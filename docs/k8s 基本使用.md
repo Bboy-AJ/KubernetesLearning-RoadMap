@@ -4,7 +4,7 @@
 
 ​        本文档旨在描述k8s的基本使用，帮助用户快速上手k8s部署项目。概况图如下：
 
-<img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/k8s基本使用.png">
+<img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/k8sBasic.png">
 
 ## 1. 资源对象
 

@@ -21,7 +21,7 @@
 
 在这里，我们主要介绍下面几种资源对象。
 
-![资源](..\images\资源.png)
+<img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/k8sResource.png">
 
 ### 1. 1  Pod
 
@@ -167,7 +167,9 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 ###           3.1 dashbord
 
-​       ![dashbord](..\images\dashbord.png)
+<img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/dashbord.png">
+
+​       
 
 常用操作：
 
@@ -201,7 +203,9 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 ​        ***Dashbord：***
 
-​       ![Grafana](..\images\Grafana.png)
+
+
+​       <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/Grafana.png">
 
 ​       可以通过Dashbord查看集群详情：cpu、memory、filesystemm、network等
 
@@ -239,7 +243,9 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 ​                         用来将后端war包部署在tomcat中，部署为一个Deployment类型的资源。
 
-​       ![deployment](..\images\deployment.png)
+<img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/deployment.png">
+
+
 
 ​                     将war包放在最下方的Path对应的路径（服务器的目录）下即可。
 
@@ -247,7 +253,7 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 ​                  2、basicInfo-service.yaml
 
-​                        ![service](..\images\service.png)
+​                      <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/service.png">
 
 
 
@@ -255,11 +261,17 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 ​                     在Dashbord上点击右上角的+Create，选中 “basicInfo-deployment.yaml”文件， 此时Dashbord上就会出现如下资源：
 
-​                       ![1](..\images\1.png)
+​                     <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/1.png">
+
+​                       
 
 ​                在Dashbord上点击右上角的+Create，选中 “basicInfo-service.yaml”文件，  此时Dashbord上就会出现service如下：
 
-​               ![2](..\images\2.png)
+​               <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/2.png">
+
+
+
+​               
 
 ​         
 

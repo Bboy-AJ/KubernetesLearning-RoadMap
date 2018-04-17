@@ -163,7 +163,7 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 - ​     可维护性：Yaml文件可以通过源头控制，跟踪每次操作
 - ​     灵活性：Yaml可以创建比命令行更加复杂的结果
 
- 
+
 
 ## 3. 操作
 
@@ -184,15 +184,92 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 | 创建   | $ create -f FILENAME                     | kubectl create -f my.yaml              |
 | 删除   | $ delete ([-f FILENAME] \| TYPE [(NAME \| -l label \| --all)]) | 删除所有pods：kubectl delete pods --all     |
 | 修改   | $ edit (RESOURCE/NAME \| -f FILENAME)    | 修改service:  kubectl edit svc/myservice |
-| 查询   | get                                      | 查询所有pod:  kubectl get pods             |
+| 查询   | $ get [(-o\|--output=)json\|yaml\|wide\|custom-columns=...\|custom-columns-file=...\|go-template=...\|go-template-file=...\|jsonpath=...\|jsonpath-file=...] (TYPE [NAME \| -l label] \| TYPE/NAME ...) [flags] | 查询所有pod:  kubectl get pods             |
 
 
 
 ## 4. Grafana
 
+​       Grafana是一个可视化面板，有着非常漂亮的图表和布局展示，功能齐全的度量仪表盘和图形编辑器，支持Graphite、Zabbix、InfluxDB、Elasticsearch、Prometheus和OpenTSDB作为数据源。
+
+​       ***Grafana主要特性：***
+
+- ​        灵活丰富的图形化选项
+- ​        可以混合多种风格
+- ​        支持白天和夜间模式
+- ​        多个数据源
+
+​    
+
+​        ***Dashbord：***
+
+​       ![Grafana](..\images\Grafana.png)
+
+​       可以通过Dashbord查看集群详情：cpu、memory、filesystemm、network等
+
+
+
 ## 5. Demo
 
-##6. 参考
+​       接下面将通过一个demo来介绍如何部署一个项目。
+
+​      一、业务场景
+
+​             部署ITOO的基础项目（后端），部署之后将可以访问基础系统的swagger。
+
+​      二、所需资料
+
+​             1、yaml文件：
+
+​                  basicInfo-deployment.yaml
+
+​                  basicInfo-service.yaml
+
+​              2、后端war包
+
+​                    basicInfo-web.war
+
+​                    basicInfo-service.war
+
+​               3、镜像
+
+​                    reg.dynamicharbor.com/web/othertomcat:2.0
+
+​          三、详解 
+
+​                  1、basicInfo-deployment.yaml
+
+​                         用来将后端war包部署在tomcat中，部署为一个Deployment类型的资源。
+
+​       ![deployment](..\images\deployment.png)
+
+​                     将war包放在最下方的Path对应的路径（服务器的目录）下即可。
+
+
+
+​                  2、basicInfo-service.yaml
+
+​                        ![service](..\images\service.png)
+
+
+
+​                     
+
+​                     在Dashbord上点击右上角的+Create，选中 “basicInfo-deployment.yaml”文件， 此时Dashbord上就会出现如下资源：
+
+​                       ![1](..\images\1.png)
+
+​                在Dashbord上点击右上角的+Create，选中 “basicInfo-service.yaml”文件，  此时Dashbord上就会出现service如下：
+
+​               ![2](..\images\2.png)
+
+​         
+
+​               此时访问：IP：31116即可访问基础服务的swagger。
+
+
+
+##**6**. 参考
 
 kubenetes官网：
 
@@ -201,3 +278,5 @@ kubenetes中文社区：http://docs.kubernetes.org.cn/
 宋净超：https://jimmysong.io/kubernetes-handbook/
 
 kubenetes之yaml文件：https://blog.csdn.net/phantom_111/article/details/79427144
+
+Grafana安装配置介绍：http://www.ywnds.com/?p=5903

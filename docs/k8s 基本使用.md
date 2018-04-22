@@ -37,15 +37,11 @@ pod是kubernetes创建或部署的最小/最简单的基本单位，一个Pod代
 
 
 
-
-
 ***1.1.2 pod的使用***
 
 ​     kubenetes中pod的使用可分为2种主要方式：
 
 - **pod中运行一个容器。**“one-container-per-Pod”模式是kubenetes最常见的用法，在这种情况下你可以将Pod视为单个封装的容器，但是kubenetes是直接管理Pod而不是容器。
-
-  ​
 
 - **Pods中运行多个需要一起工作的容器。** pod可以封装紧密耦合的应用，他们需要由多个容器组成，他们之间能够共享资源，这些容器可形成一个单一的内部Service单位。
 
@@ -71,8 +67,6 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 - **存储**
 
 ​       Pod可以指定一组共享存储Volumes。Pod中的所有容器都可以访问共享Volumes，允许这些容器共享数据。Volumes还可以用于Pod中的数据持久化，以防其中一个容器需要重新启动而丢失数据。
-
-
 
 
 
@@ -115,8 +109,6 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 ​       DaemonSet确保全部（或一些）Node上运行一个Pod的副本。当有Node加入集群时，也会为他们新增一个Pod，当有Node从集群移除时，这些Pod也会被回收，删除DaemonSet将会删除它创建的所有Pod。例如：在每个Node上运行日志收集Daemon，例如fluentd、logstash。
 
 ​       ***VS Replication Controller***
-
-​       
 
 | Replication Controller                   | Daemon Set                               |
 | ---------------------------------------- | ---------------------------------------- |
@@ -189,7 +181,7 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 ​        或者请参考网址：https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 
-​                                    https://jimmysong.io/kubernetes-handbook/guide/kubectl-cheatsheet.html
+​                                                      https://jimmysong.io/kubernetes-handbook/guide/kubectl-cheatsheet.html
 
 ​                         
 

@@ -1,12 +1,12 @@
 **Docker**
 
-#一、什么是Docker？
+# 一、什么是Docker？
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Docker是全球领先的软件容器化平台。
 
  
 
-#二、为什么用Docker？
+# 二、为什么用Docker？
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Docker平台是唯一的容器平台，用于构建，保护和管理从开发到生产的最广泛的应用程序。其优点有：
 
@@ -19,7 +19,7 @@
 
  
 
-#三、Docker解决的问题？
+# 三、Docker解决的问题？
 
 &nbsp;&nbsp;&nbsp;&nbsp;云计算、大数据，移动技术的快速发展，加之企业业务需求的不断变化，导致企业架构要随时更改以适合业务需求，跟上技术更新的步伐。毫无疑问，这些重担都将压在企业开发人员身上；团队之间如何高效协调，快速交付产品，快速部署应用，以及满足企业业务需求，是开发人员亟需解决的问题。Docker技术恰好可以帮助开发人员解决这些问题。
 
@@ -31,13 +31,13 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;正如中国惠普云计算集成云技术首席专家刘艳凯所说的那样：“任何一项技术的发展和它受到的追捧，都是因为它能够解决困扰人们的问题，”Docker正是这样的一种技术。Docker的解决问题能力虽然很强，但在企业中的实际应用却并不多，那么是什么问题阻碍了Docker在企业中的实践？
 
-#四、Docker的发展？
+# 四、Docker的发展？
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;任何一项新技术的出现，都需要一个发展过程，比如云计算为企业所接受用了将近五年左右时间，OpenStack技术也经历了两、三年才受到人们的认可。因此，虽然Docker技术发展很快，但技术还不够成熟，对存储的灵活的支持、网络的开销和兼容性方面还存在限制，这是Docker没有被企业大范围使用的一个主要原因。另外一个原因是企业文化是否与DevOps运动一致，只有企业支持DevOps，才能更大地发挥Docker的价值。最后一个原因就是安全性问题，Docker对于Linux这一层的安全的隔离还有待改进，才能进一步得到企业的认可。惠普刘艳凯认为，这也是Docker需要在下一步中改进的一方面。
 
  
 
-#五、资源
+# 五、资源
 
 Docker官网：<https://www.docker.com/>
 
@@ -50,5 +50,3 @@ Docker菜鸟教程，资源汇总：<http://www.runoob.com/docker/docker-resourc
 Docker入门教程-慕课网：<https://www.imooc.com/learn/867>
 
  
-
-#六、应用

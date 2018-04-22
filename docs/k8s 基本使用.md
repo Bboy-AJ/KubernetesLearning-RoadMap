@@ -2,25 +2,15 @@
 
 ##目录：
 
-- ​      
+[TOC]
 
-  [1. 资源对象]: 
 
-  ​
 
-- ​       yaml
 
-- ​       操作
-
-- ​       Grafana
-
-- ​       Demo
-
-​        本文档旨在描述k8s的基本使用，帮助用户快速上手k8s部署项目。概况图如下：
-
-<img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/k8sBasic.png">
 
 ## 1. 资源对象
+
+
 
 ​      kubenetes中的对象都可以在yaml文件中作为一种API类型来配置。简单分类如下
 
@@ -164,11 +154,6 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 - ​      缩进的空格数目不重要，只要相同层级的元素左对齐即可
 - ​      “#”表示注释
 
-​    在kubenetes中只需要知道两种结构类型即可：
-
--    Lists
--    Map
-
 ​     使用Yaml用于k8s的定义带来的好处包括：
 
 - ​     便捷性：不必添加大量的参数到命令行中执行命令
@@ -200,7 +185,13 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 | 修改   | $ edit (RESOURCE/NAME \| -f FILENAME)    | 修改service:  kubectl edit svc/myservice |
 | 查询   | $ get [(-o\|--output=)json\|yaml\|wide\|custom-columns=...\|custom-columns-file=...\|go-template=...\|go-template-file=...\|jsonpath=...\|jsonpath-file=...] (TYPE [NAME \| -l label] \| TYPE/NAME ...) [flags] | 查询所有pod:  kubectl get pods             |
 
+​        获得更多语法，推荐用法在命令行输入 : **kubectl help**    解锁更多语法。
 
+​        或者请参考网址：https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
+
+​                                    https://jimmysong.io/kubernetes-handbook/guide/kubectl-cheatsheet.html
+
+​                         
 
 ## 4. Grafana
 
@@ -221,81 +212,61 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 ​       <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/Grafana.png">
 
-​       可以通过Dashbord查看集群详情：cpu、memory、filesystemm、network等
+​       可以通过Dashbord查看集群详情：cpu、memory、filesystemm、network等，同样也可以定制化符合自己需求的格式页面。
 
 
 
 ## 5. Demo
 
-​       接下面将通过一个demo来介绍如何部署一个项目。
+​      下面介绍如何通过kubenetes来部署一个tomcat
 
-​      一、业务场景
+​       1、从[dockerHub](https://hub.docker.com/)上拉取tomcat镜像![tomcatImage](C:\Users\xb\Desktop\tomcatImage.png)
 
-​             部署ITOO的基础项目（后端），部署之后将可以访问基础系统的swagger。
+ 查看命令
 
-​      二、所需资料
+![tomcat2](C:\Users\xb\Desktop\tomcat2.png)           
 
-​             1、yaml文件：
+2、将镜像拉取到服务器
 
-​                  basicInfo-deployment.yaml
+​     执行上方查询出拉取命令：docker pull tomcat (如果因为网络原因下载不了，请自行参考使用docker加速器)
 
-​                  basicInfo-service.yaml
-
-​              2、后端war包
-
-​                    basicInfo-web.war
-
-​                    basicInfo-service.war
-
-​               3、镜像
-
-​                    reg.dynamicharbor.com/web/othertomcat:2.0
-
-​          三、详解 
-
-​                  1、basicInfo-deployment.yaml
-
-​                         用来将后端war包部署在tomcat中，部署为一个Deployment类型的资源。
-
-<img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/deployment.png">
+​     ![tomcatDocker](C:\Users\xb\Desktop\tomcatDocker.png)
 
 
 
-​                     将war包放在最下方的Path对应的路径（服务器的目录）下即可。
+3、查看拉取的镜像
 
+​      根据docker images命令查询下载好的镜像为：daocloud.io/library/tomcat:6.0-jre7
 
+4、编写yaml文件
 
-​                  2、basicInfo-service.yaml
+- ​      deployment.yaml
 
-​                      <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/service.png">
+  ​      
 
+- ​      service.yaml
 
+  5、将yaml文件放在服务器上，并在此目录下
 
-​                     
+​         创建deployment：kubectl create -f deployment.yaml
 
-​                     在Dashbord上点击右上角的+Create，选中 “basicInfo-deployment.yaml”文件， 此时Dashbord上就会出现如下资源：
+​         创建service： kubectl create -f  service.yaml
 
-​                     <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/1.png">
+   6、之后可以访问service暴露出来的端口号在浏览器访问：
 
-​                       
-
-​                在Dashbord上点击右上角的+Create，选中 “basicInfo-service.yaml”文件，  此时Dashbord上就会出现service如下：
-
-​               <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/2.png">
-
-
-
-​               
+​        ![view](C:\Users\xb\Desktop\view.png)
 
 ​         
 
-​               此时访问：IP：31116即可访问基础服务的swagger。
+​         恭喜你已经学会了如何在kubenetes平台上部署一个简单的项目了。
 
 
 
 ##**6**. 参考
 
-kubenetes官网：
+kubenetes官网：https://kubernetes.io/
+
+kubenetes github地址：https://github.com/kubernetes/kubernetes
 
 kubenetes中文社区：http://docs.kubernetes.org.cn/
 

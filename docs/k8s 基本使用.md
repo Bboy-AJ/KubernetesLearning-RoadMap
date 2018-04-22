@@ -1,16 +1,10 @@
 #                              k8s基本使用
 
-##目录：
-
-[TOC]
 
 
 
 
-
-## 1. 资源对象
-
-
+##1. 资源对象
 
 ​      kubenetes中的对象都可以在yaml文件中作为一种API类型来配置。简单分类如下
 
@@ -31,7 +25,7 @@
 
 
 
-***1.1.1 什么是pod?***
+***1.1 什么是pod?***
 
 pod是kubernetes创建或部署的最小/最简单的基本单位，一个Pod代表集群上正在运行的一个进程。
 
@@ -153,8 +147,7 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 - ​     灵活性：Yaml可以创建比命令行更加复杂的结果
 
 
-
-## 3. 操作
+#3. 操作
 
 ###           3.1 dashbord
 
@@ -212,41 +205,39 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 ​      下面介绍如何通过kubenetes来部署一个tomcat
 
-​       1、从[dockerHub](https://hub.docker.com/)上拉取tomcat镜像![tomcatImage](C:\Users\xb\Desktop\tomcatImage.png)
+​       1、从[dockerHub](https://hub.docker.com/)上拉取tomcat镜像
+
+ <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/tomcatImage.png">
 
  查看命令
 
-![tomcat2](C:\Users\xb\Desktop\tomcat2.png)           
+ <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/tomcat2.png">       
 
 2、将镜像拉取到服务器
 
 ​     执行上方查询出拉取命令：docker pull tomcat (如果因为网络原因下载不了，请自行参考使用docker加速器)
 
-​     ![tomcatDocker](C:\Users\xb\Desktop\tomcatDocker.png)
-
-
+ <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/tomcatDocker.png">       
 
 3、查看拉取的镜像
 
-​      根据docker images命令查询下载好的镜像为：daocloud.io/library/tomcat:6.0-jre7
+​      根据docker images命令查询下载好的镜像为：**daocloud.io/library/tomcat:6.0-jre7**
 
 4、编写yaml文件
 
-- ​      deployment.yaml
+- ​      [deployment.yaml](https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/yaml/deployment.yaml)
 
-  ​      
-
-- ​      service.yaml
+- ​      [service.yaml](https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/yaml/service.yaml)
 
   5、将yaml文件放在服务器上，并在此目录下
 
-​         创建deployment：kubectl create -f deployment.yaml
+​         创建deployment：**kubectl create -f deployment.yaml**
 
-​         创建service： kubectl create -f  service.yaml
+​         创建service： **kubectl create -f  service.yaml**
 
    6、之后可以访问service暴露出来的端口号在浏览器访问：
 
-​        ![view](C:\Users\xb\Desktop\view.png)
+​        <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/view.png">    
 
 ​         
 
@@ -254,7 +245,7 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 
 
-##**6**. 参考
+##6、参考
 
 kubenetes官网：https://kubernetes.io/
 

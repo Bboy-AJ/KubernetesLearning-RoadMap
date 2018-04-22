@@ -1,12 +1,20 @@
-**Docker**
+*Docker入门文档**
 
-# 一、什么是Docker？
+# 一、Docker基本认识
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Docker是全球领先的软件容器化平台。
+## 1、什么是Docker？
 
- 
+&nbsp;1、什么是Docker？
 
-# 二、为什么用Docker？
+​	Docker是全球领先的软件容器化平台。官方解释，docker是一个开源项目，可以作为轻量级容器来打包、部署、运行应用。Node.js解释，docker运行用标准单位及所有依赖打包一个应用。但是这些有些抽象，所以我们用现有技术来类比。
+
+​	Docker 可以粗糙的理解为轻量级的虚拟机，但是Docker不是虚拟机。
+
+![Docker VS VM](C:\Users\王红伟\Desktop\Docker VS VM.png)
+
+​	虚拟机VM上有Hypervisor（虚拟层，虚拟处理硬件），在硬件上安装独立的OS，然后再运行各种各样的应用程序。Docker利用Docker Engine运行应用程序，比虚拟机少了虚拟层，使得程序的启动速度，内存等小很多，所以更轻量。
+
+## 2、为什么用Docker？
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Docker平台是唯一的容器平台，用于构建，保护和管理从开发到生产的最广泛的应用程序。其优点有：
 
@@ -17,33 +25,78 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Docker赋予开发者自由，创造力和更快运送更多软件的权力。从所有容器化应用和服务的通用控制平面获得可视性，管理和安全性。另外，Docker是一个开放和可扩展的平台，可轻松集成到现有环境中，并在全球范围内培育充满活力的技术生态系统。
 
- 
+## 3、Docker解决的问题？
 
-# 三、Docker解决的问题？
+&nbsp;&nbsp;&nbsp;&nbsp;传统的开发过程中，开发、测试、运维是三个独立运作的团队，团队之间沟通不畅，开发运维之间冲突时有发生，导致协作效率低下，产品交付延迟， 影响了企业的业务运行。
 
-&nbsp;&nbsp;&nbsp;&nbsp;云计算、大数据，移动技术的快速发展，加之企业业务需求的不断变化，导致企业架构要随时更改以适合业务需求，跟上技术更新的步伐。毫无疑问，这些重担都将压在企业开发人员身上；团队之间如何高效协调，快速交付产品，快速部署应用，以及满足企业业务需求，是开发人员亟需解决的问题。Docker技术恰好可以帮助开发人员解决这些问题。
+​	传统的开发过程中，开发、测试、运维是三个独立运作的团队，团队之间沟通不畅，开发运维之间冲突时有发生，导致协作效率低下，产品交付延迟， 影响了企业的业务运行。	
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;云计算、大数据，移动技术的快速发展，加之企业业务需求的不断变化，导致企业架构要随时更改以适合业务需求，跟上技术更新的步伐。毫无疑问，这些重担都将压在企业开发人员身上；团队之间如何高效协调，快速交付产品，快速部署应用，以及满足企业业务需求，是开发人员亟需解决的问题。Docker技术恰好可以帮助开发人员解决这些问题。
+​	Docker技术将应用以集装箱的方式打包交付，使应用在不同的团队中共享，通过镜像的方式应用可以部署于任何环境中。以容器方式交付的Docker技术支持不断地开发迭代，大大提升了产品开发和交付速度。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了解决开发人员和运维人员之间的协作关系，加快应用交付速度，越来越多的企业引入了DevOps这一概念。但是，传统的开发过程中，开发、测试、运维是三个独立运作的团队，团队之间沟通不畅，开发运维之间冲突时有发生，导致协作效率低下，产品交付延迟， 影响了企业的业务运行。Docker技术将应用以集装箱的方式打包交付，使应用在不同的团队中共享，通过镜像的方式应用可以部署于任何环境中。这样避免了各团队之间的协作问题的出现，成为企业实现DevOps目标的重要工具。以容器方式交付的Docker技术支持不断地开发迭代，大大提升了产品开发和交付速度。
+## 4、架构
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此外，与通过Hypervisor把底层设备虚拟化的虚拟机不同，Docker直接移植于Linux内核之上，通过运行Linux进程将底层设备虚拟隔离，这样系统性能的损耗也要比虚拟机低的多，几乎可以忽略。同时，Docker应用容器的启停非常高效，可以支持大规模的分布系统的水平扩展，真正给企业开发带来福音。
+Docker采用C/S架构模式。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;正如中国惠普云计算集成云技术首席专家刘艳凯所说的那样：“任何一项技术的发展和它受到的追捧，都是因为它能够解决困扰人们的问题，”Docker正是这样的一种技术。Docker的解决问题能力虽然很强，但在企业中的实际应用却并不多，那么是什么问题阻碍了Docker在企业中的实践？
+![docker架构](C:\Users\王红伟\Desktop\docker架构.png)
 
-# 四、Docker的发展？
+### 4.1Docker容器（Container）
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;任何一项新技术的出现，都需要一个发展过程，比如云计算为企业所接受用了将近五年左右时间，OpenStack技术也经历了两、三年才受到人们的认可。因此，虽然Docker技术发展很快，但技术还不够成熟，对存储的灵活的支持、网络的开销和兼容性方面还存在限制，这是Docker没有被企业大范围使用的一个主要原因。另外一个原因是企业文化是否与DevOps运动一致，只有企业支持DevOps，才能更大地发挥Docker的价值。最后一个原因就是安全性问题，Docker对于Linux这一层的安全的隔离还有待改进，才能进一步得到企业的认可。惠普刘艳凯认为，这也是Docker需要在下一步中改进的一方面。
+​	容器是独立运行的一个或一组应用。
 
- 
+### 4.2Docker镜像(Images)
 
-# 五、资源
+​	Docker 镜像是用于创建 Docker 容器的模板。
+
+
+
+容器和镜像的关系类似于面向对象编程中的对象与类。
+
+| Docker | 面向对象 |
+| ------ | -------- |
+| 容器   | 对象     |
+| 镜像   | 类       |
+
+### 4.3Dockerfile
+
+​	创建一个 Dockerfile 文件，其中包含一组指令来告诉 Docker 如何构建我们的镜像。
+
+# 二、Docker安装与使用
+
+## 1、Docker安装：
+
+以CentOS为例：https://www.w3cschool.cn/docker/centos-docker-install.html
+
+## 2、Docker命令：
+
+常用命令：https://www.w3cschool.cn/docker/docker-nx3g2gxn.html
+
+## 3、docker实例：
+
+以安装tomcat为例：
+
+1.拉取tomcat镜像：
+
+[root@localhost mysql]# docker pull tomcat
+
+2.运行镜像：
+
+[root@localhost tomcat]# docker run --name tomcat -p 8080:8080 -v $PWD/test:/usr/local/tomcat/webapps/test -d tomcat
+
+3.查看容器启动情况：
+
+[root@localhost tomcat]# docker ps
+
+4.浏览器中输入：http://ip:8080/ （ip为虚拟机ip）
+
+![tomcat](C:\Users\王红伟\Desktop\tomcat.png)                                                               
+
+# 三、资源
 
 Docker官网：<https://www.docker.com/>
 
 Docker中文社区：<http://www.docker.org.cn/>
 
-Docker在线实验室：<https://bingohuang.com/docker-labs-1/>
+GitBook：https://yeasy.gitbooks.io/docker_practice/content/
 
 Docker菜鸟教程，资源汇总：<http://www.runoob.com/docker/docker-resources.html>
 

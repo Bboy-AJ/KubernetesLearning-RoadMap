@@ -4,48 +4,51 @@
 
 ## 1、什么是Docker？
 
-&nbsp;1、什么是Docker？
+1、什么是Docker？
 
-​	Docker是全球领先的软件容器化平台。官方解释，docker是一个开源项目，可以作为轻量级容器来打包、部署、运行应用。Node.js解释，docker运行用标准单位及所有依赖打包一个应用。但是这些有些抽象，所以我们用现有技术来类比。
+&emsp;&emsp;Docker是全球领先的软件容器化平台。官方解释，docker是一个开源项目，可以作为轻量级容器来打包、部署、运行应用。Node.js解释，docker运行用标准单位及所有依赖打包一个应用。但是这些有些抽象，所以我们用现有技术来类比。
 
-​	Docker 可以粗糙的理解为轻量级的虚拟机，但是Docker不是虚拟机。
+&emsp;&emsp;Docker 可以粗糙的理解为轻量级的虚拟机，但是Docker不是虚拟机。
+<div align=center>
+<img src="https://raw.githubusercontent.com/12wanghongwei/KubernetesLearning-RoadMap/master/images/Docker VS VM.png">
+</div>
 
-![Docker VS VM](C:\Users\王红伟\Desktop\Docker VS VM.png)
-
-​	虚拟机VM上有Hypervisor（虚拟层，虚拟处理硬件），在硬件上安装独立的OS，然后再运行各种各样的应用程序。Docker利用Docker Engine运行应用程序，比虚拟机少了虚拟层，使得程序的启动速度，内存等小很多，所以更轻量。
+&emsp;&emsp;虚拟机VM上有Hypervisor（虚拟层，虚拟处理硬件），在硬件上安装独立的OS，然后再运行各种各样的应用程序。Docker利用Docker Engine运行应用程序，比虚拟机少了虚拟层，使得程序的启动速度，内存等小很多，所以更轻量。
 
 ## 2、为什么用Docker？
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Docker平台是唯一的容器平台，用于构建，保护和管理从开发到生产的最广泛的应用程序。其优点有：
+&emsp;&emsp;Docker平台是唯一的容器平台，用于构建，保护和管理从开发到生产的最广泛的应用程序。其优点有：
 
 1. 敏捷
 2. 可移植性
 3. 安全
 4. 节约成本  
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Docker赋予开发者自由，创造力和更快运送更多软件的权力。从所有容器化应用和服务的通用控制平面获得可视性，管理和安全性。另外，Docker是一个开放和可扩展的平台，可轻松集成到现有环境中，并在全球范围内培育充满活力的技术生态系统。
+&emsp;&emsp;Docker赋予开发者自由，创造力和更快运送更多软件的权力。从所有容器化应用和服务的通用控制平面获得可视性，管理和安全性。另外，Docker是一个开放和可扩展的平台，可轻松集成到现有环境中，并在全球范围内培育充满活力的技术生态系统。
 
 ## 3、Docker解决的问题？
 
-&nbsp;&nbsp;&nbsp;&nbsp;传统的开发过程中，开发、测试、运维是三个独立运作的团队，团队之间沟通不畅，开发运维之间冲突时有发生，导致协作效率低下，产品交付延迟， 影响了企业的业务运行。
+&emsp;&emsp;传统的开发过程中，开发、测试、运维是三个独立运作的团队，团队之间沟通不畅，开发运维之间冲突时有发生，导致协作效率低下，产品交付延迟， 影响了企业的业务运行。
 
-​	传统的开发过程中，开发、测试、运维是三个独立运作的团队，团队之间沟通不畅，开发运维之间冲突时有发生，导致协作效率低下，产品交付延迟， 影响了企业的业务运行。	
+&emsp;&emsp;传统的开发过程中，开发、测试、运维是三个独立运作的团队，团队之间沟通不畅，开发运维之间冲突时有发生，导致协作效率低下，产品交付延迟， 影响了企业的业务运行。	
 
-​	Docker技术将应用以集装箱的方式打包交付，使应用在不同的团队中共享，通过镜像的方式应用可以部署于任何环境中。以容器方式交付的Docker技术支持不断地开发迭代，大大提升了产品开发和交付速度。
+&emsp;&emsp;Docker技术将应用以集装箱的方式打包交付，使应用在不同的团队中共享，通过镜像的方式应用可以部署于任何环境中。以容器方式交付的Docker技术支持不断地开发迭代，大大提升了产品开发和交付速度。
 
 ## 4、架构
 
 Docker采用C/S架构模式。
 
-![docker架构](C:\Users\王红伟\Desktop\docker架构.png)
+<div align=center>
+<img src="https://raw.githubusercontent.com/12wanghongwei/KubernetesLearning-RoadMap/master/images/docker架构.png">
+</div>
 
 ### 4.1Docker容器（Container）
 
-​	容器是独立运行的一个或一组应用。
+容器是独立运行的一个或一组应用。
 
 ### 4.2Docker镜像(Images)
 
-​	Docker 镜像是用于创建 Docker 容器的模板。
+Docker 镜像是用于创建 Docker 容器的模板。
 
 
 
@@ -58,7 +61,7 @@ Docker采用C/S架构模式。
 
 ### 4.3Dockerfile
 
-​	创建一个 Dockerfile 文件，其中包含一组指令来告诉 Docker 如何构建我们的镜像。
+&emsp;&emsp;创建一个 Dockerfile 文件，其中包含一组指令来告诉 Docker 如何构建我们的镜像。
 
 # 二、Docker安装与使用
 
@@ -88,7 +91,9 @@ Docker采用C/S架构模式。
 
 4.浏览器中输入：http://ip:8080/ （ip为虚拟机ip）
 
-![tomcat](C:\Users\王红伟\Desktop\tomcat.png)                                                               
+<div align=center>
+<img src="https://raw.githubusercontent.com/12wanghongwei/KubernetesLearning-RoadMap/master/images/tomcat.png">
+</div>                                                             
 
 # 三、资源
 

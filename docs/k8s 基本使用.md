@@ -4,7 +4,7 @@
 
 
 
-##1. 资源对象
+## 1. 资源对象
 
 ​      kubenetes中的对象都可以在yaml文件中作为一种API类型来配置。简单分类如下
 
@@ -86,7 +86,7 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 
 
-###1.3 ReplicationController和ReplicaSet
+### 1.3 ReplicationController和ReplicaSet
 
 ​      ReplicationController用来确保容器应用的副本数始终保持在用户定义的副本数，即如果有容器异常退出，会自动创建新的Pod来替代，而如果异常多出来的容器也会自动回收。
 
@@ -147,7 +147,7 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 - ​     灵活性：Yaml可以创建比命令行更加复杂的结果
 
 
-#3. 操作
+# 3. 操作
 
 ###           3.1 dashbord
 
@@ -245,7 +245,7 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 
 
-#6、参考
+# 6、参考
 
 kubenetes官网：https://kubernetes.io/
 

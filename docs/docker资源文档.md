@@ -67,7 +67,10 @@ Docker 镜像是用于创建 Docker 容器的模板。
 
 ## 1、Docker安装：
 
+
+推荐使用在linux上安装Docker，如果没有环境可以尝试虚拟机安装：https://blog.csdn.net/hui_2016/article/details/68927487
 以CentOS为例：https://www.w3cschool.cn/docker/centos-docker-install.html
+
 
 ## 2、Docker命令：
 

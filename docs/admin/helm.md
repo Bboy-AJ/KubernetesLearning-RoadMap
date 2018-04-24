@@ -128,7 +128,7 @@ helm install --name my-release --set Persistence.StorageClass=slow stable/jenkin
 
 ​       其他方式可自行探索。
 
-#自定义helm
+# 自定义helm
 
 ​           
 

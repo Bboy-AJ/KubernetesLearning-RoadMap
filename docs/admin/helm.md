@@ -1,6 +1,6 @@
 # helm
 
-
+<div align=center><img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/helm1.png"></div>
 
 helm作为Kubernetes一个包管理引擎，基于chart的概念，有效的对Kubernetes上应用的部署进行了优化。Chart通过模板引擎，下方对接Kubernetes中services模型，上端打造包管理仓库。最后的使得Kubernetes中，对应用的部署能够达到像使用apt-get和yum一样简单易用。
 
@@ -18,10 +18,15 @@ helm把kubenetes的资源（比如deployment、services或者ingress等）打包
 2. Release：是chart的部署实例，一个chart在一个Kubernetes集群上可以有多个release，即这个chart可以被安装多次。
 3. Repository：chart的仓库，用于发布和存储chart
 
-#helm安装
+# helm安装
+
+<div align=center><img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/helm5.png"></div>
 
 - 客户端helm：helm是一个命令行工具，可在本地运行，一般运行在CI/CD Server上。
+
 - 服务端tiller：tiller运行在Kubernetes集群上，管理chart安装的release。
+
+  ​
 
 
 
@@ -30,6 +35,8 @@ helm把kubenetes的资源（比如deployment、services或者ingress等）打包
 ​     wget https://storage.googleapis.com/kubernetes-helm/helm-v2.6.1-linux-amd64.tar.gz
 
 ​    tar -zxvf helm-v2.6.1-linux-amd64.tgz && mv linux-amd64/helm /usr/local/bin/helm
+
+
 
 **server安装：**
 
@@ -51,9 +58,11 @@ helm把kubenetes的资源（比如deployment、services或者ingress等）打包
 helm create 名字
 ```
 
+<div align=center><img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/helm2.png"></div>
+
 ​              2、产生helm13（我命名的），新的chart，里面包含如下几项：
 
-​                 
+​                 <div align=center><img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/helm3.png"></div>
 
 | 文件                  | 说明                                       |
 | :------------------ | ---------------------------------------- |

@@ -86,9 +86,24 @@ docker  run 出现问题：TLS handshake timeout
 centos7 ，或者说 redhat 的 docker 的配置文件和其他发行版都不一样。 
 按照阿里和 daoCloud 的手册你绝对无法顺利配置好镜像。 
 
-你需要的是
+两种方案：
 
-1）设置docker加速：
+第一种：推荐使用。为了永久性保留更改，您可以修改 `/etc/docker/daemon.json` 文件并添加上 registry-mirrors 键值。
+
+```
+{
+  "registry-mirrors": ["https://registry.docker-cn.com"]
+}
+```
+
+修改保存后重启 Docker 以使配置生效。
+
+第二种：编辑vim /etc/sysconfig/docker 然后修改
+
+OPTIONS='--selinux-enabled --log-driver=journald --registry-mirror=<your address>' 
+（注意：registry-mirror 输入你的镜像地址。需要注册云服务，获取镜像，设置docker加速）
+
+## 2、设置Docker加速：
 
 注册登录[阿里云](https://cr.console.aliyun.com)
 
@@ -96,15 +111,11 @@ centos7 ，或者说 redhat 的 docker 的配置文件和其他发行版都不�
 
 ![docker加速](C:\Users\王红伟\Desktop\docker加速.png)
 
-2）vim /etc/sysconfig/docker 然后修改
-OPTIONS='--selinux-enabled --log-driver=journald --registry-mirror=<your address>' 
-（注意：registry-mirror 输入你的镜像地址 ）
-
-## 2、Docker命令：
+## 3、Docker命令：
 
 常用命令：https://www.w3cschool.cn/docker/docker-nx3g2gxn.html
 
-## 3、docker实例：
+## 3、Docker实例：
 
 以安装tomcat为例：
 

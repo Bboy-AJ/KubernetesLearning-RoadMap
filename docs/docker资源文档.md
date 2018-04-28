@@ -10,7 +10,9 @@
 
 ​	Docker 可以粗糙的理解为轻量级的虚拟机，但是Docker不是虚拟机。
 
-![Docker VS VM](C:\Users\王红伟\Desktop\Docker VS VM.png)
+<div align=center>
+<img src="https://raw.githubusercontent.com/12wanghongwei/KubernetesLearning-RoadMap/master/images/Docker VS VM.png">
+</div>
 
 ​	虚拟机VM上有Hypervisor（虚拟层，虚拟处理硬件），在硬件上安装独立的OS，然后再运行各种各样的应用程序。Docker利用Docker Engine运行应用程序，比虚拟机少了虚拟层，使得程序的启动速度，内存等小很多，所以更轻量。
 
@@ -37,7 +39,9 @@
 
 Docker采用C/S架构模式。
 
-![docker架构](C:\Users\王红伟\Desktop\docker架构.png)
+<div align=center>
+<img src="https://raw.githubusercontent.com/12wanghongwei/KubernetesLearning-RoadMap/master/images/docker架构.png">
+</div>
 
 ### 4.1Docker容器（Container）
 
@@ -94,7 +98,9 @@ centos7 ，或者说 redhat 的 docker 的配置文件和其他发行版都不�
 
 找到镜像加速器按照命令依次执行即可：
 
-![docker加速](C:\Users\王红伟\Desktop\docker加速.png)
+<div align=center>
+<img src="https://raw.githubusercontent.com/12wanghongwei/KubernetesLearning-RoadMap/master/images/docker加速.png">
+</div>
 
 2）vim /etc/sysconfig/docker 然后修改
 OPTIONS='--selinux-enabled --log-driver=journald --registry-mirror=<your address>' 
@@ -122,7 +128,9 @@ OPTIONS='--selinux-enabled --log-driver=journald --registry-mirror=<your address
 
 4.浏览器中输入：http://ip:8080/ （ip为虚拟机ip）
 
-![tomcat](C:\Users\王红伟\Desktop\tomcat.png)                                                               
+<div align=center>
+<img src="https://raw.githubusercontent.com/12wanghongwei/KubernetesLearning-RoadMap/master/images/tomcat.png">
+</div>                                                            
 
 # 三、资源
 

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: itoo-basicinfo
+spec:
+   ports:
+   - name: itoo-basicinfo-svc
+     port: 8080
+     targetPort: 8080
+     nodePort: 31116
+   selector:
+     app: itoo-basicinfo
+   type: NodePort

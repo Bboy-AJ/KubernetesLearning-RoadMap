@@ -1,10 +1,6 @@
 #                              k8s基本使用
 
-##说明：
 
-​        本文档旨在描述k8s的基本使用，帮助用户快速上手k8s部署项目。概况图如下：
-
-![k8s基本使用](C:\Users\xb\Desktop\k8s分享文档\k8s基本使用.png)
 
 
 
@@ -23,17 +19,15 @@
 
 在这里，我们主要介绍下面几种资源对象。
 
-![资源](C:\Users\xb\Desktop\k8s分享文档\资源.png)
+<img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/k8sResource.png">
 
 ### 1. 1  Pod
 
 
 
-***1.1.1 什么是pod?***
+***1.1 什么是pod?***
 
 pod是kubernetes创建或部署的最小/最简单的基本单位，一个Pod代表集群上正在运行的一个进程。
-
-
 
 
 
@@ -42,8 +36,6 @@ pod是kubernetes创建或部署的最小/最简单的基本单位，一个Pod代
 ​     kubenetes中pod的使用可分为2种主要方式：
 
 - **pod中运行一个容器。**“one-container-per-Pod”模式是kubenetes最常见的用法，在这种情况下你可以将Pod视为单个封装的容器，但是kubenetes是直接管理Pod而不是容器。
-
-  ​
 
 - **Pods中运行多个需要一起工作的容器。** pod可以封装紧密耦合的应用，他们需要由多个容器组成，他们之间能够共享资源，这些容器可形成一个单一的内部Service单位。
 
@@ -72,8 +64,6 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 
 
-
-
 ***1.1.4 Pod和Controller***
 
 ​         Controller可以创建和管理多个Pod,提供副本管理、滚动升级和集群级别的自愈能力。例如：一个Node故障，Controller就能自动将该节点上的Pod调度到其他健康的Node上。
@@ -96,7 +86,7 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 
 
-###1.3 ReplicationController和ReplicaSet
+### 1.3 ReplicationController和ReplicaSet
 
 ​      ReplicationController用来确保容器应用的副本数始终保持在用户定义的副本数，即如果有容器异常退出，会自动创建新的Pod来替代，而如果异常多出来的容器也会自动回收。
 
@@ -113,8 +103,6 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 ​       DaemonSet确保全部（或一些）Node上运行一个Pod的副本。当有Node加入集群时，也会为他们新增一个Pod，当有Node从集群移除时，这些Pod也会被回收，删除DaemonSet将会删除它创建的所有Pod。例如：在每个Node上运行日志收集Daemon，例如fluentd、logstash。
 
 ​       ***VS Replication Controller***
-
-​       
 
 | Replication Controller                   | Daemon Set                               |
 | ---------------------------------------- | ---------------------------------------- |
@@ -142,23 +130,131 @@ Pod不会自愈，如果Pod运行的Node故障，或是调度器本身故障，�
 
 ## 2. yaml
 
-## 3. 操作
+​       yaml这种语言是以数据作为中心，而不是以置标语言为重点，是一种直观的能被电脑识别的数据序列化格式，是一个可读性高并且容易被人类阅读，容易和脚本语言交互，用来表达资料序列的编程语言。
+
+​      Yaml语法规则：
+
+- ​      大小写敏感
+- ​      使用缩进表示层级关系
+- ​      缩进时不允许使用Tal键，只允许使用空格
+- ​      缩进的空格数目不重要，只要相同层级的元素左对齐即可
+- ​      “#”表示注释
+
+​     使用Yaml用于k8s的定义带来的好处包括：
+
+- ​     便捷性：不必添加大量的参数到命令行中执行命令
+- ​     可维护性：Yaml文件可以通过源头控制，跟踪每次操作
+- ​     灵活性：Yaml可以创建比命令行更加复杂的结果
+
+
+# 3. 操作
 
 ###           3.1 dashbord
 
+<img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/dashbord.png">
+
+​       
+
+常用操作：
+
+​        将创建好的yaml文件通过Create按钮创建所需资源项目。
+
 ###           3.2  kubectl
 
-## 
+##          
+
+| 描述   | 语法                                       | 举例                                     |
+| ---- | ---------------------------------------- | -------------------------------------- |
+| 创建   | $ create -f FILENAME                     | kubectl create -f my.yaml              |
+| 删除   | $ delete ([-f FILENAME] \| TYPE [(NAME \| -l label \| --all)]) | 删除所有pods：kubectl delete pods --all     |
+| 修改   | $ edit (RESOURCE/NAME \| -f FILENAME)    | 修改service:  kubectl edit svc/myservice |
+| 查询   | $ get [(-o\|--output=)json\|yaml\|wide\|custom-columns=...\|custom-columns-file=...\|go-template=...\|go-template-file=...\|jsonpath=...\|jsonpath-file=...] (TYPE [NAME \| -l label] \| TYPE/NAME ...) [flags] | 查询所有pod:  kubectl get pods             |
+
+​        获得更多语法，推荐用法在命令行输入 : **kubectl help**    解锁更多语法。
+
+​        或者请参考网址：https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
+
+​                                                      https://jimmysong.io/kubernetes-handbook/guide/kubectl-cheatsheet.html
+
+​                         
 
 ## 4. Grafana
 
+​       Grafana是一个可视化面板，有着非常漂亮的图表和布局展示，功能齐全的度量仪表盘和图形编辑器，支持Graphite、Zabbix、InfluxDB、Elasticsearch、Prometheus和OpenTSDB作为数据源。
+
+​       ***Grafana主要特性：***
+
+- ​        灵活丰富的图形化选项
+- ​        可以混合多种风格
+- ​        支持白天和夜间模式
+- ​        多个数据源
+
+​    
+
+​        ***Dashbord：***
+
+
+
+​       <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/Grafana.png">
+
+​       可以通过Dashbord查看集群详情：cpu、memory、filesystemm、network等，同样也可以定制化符合自己需求的格式页面。
+
+
+
 ## 5. Demo
 
-##6. 参考
+​      下面介绍如何通过kubenetes来部署一个tomcat
 
-kubenetes官网：
+​       1、从[dockerHub](https://hub.docker.com/)上拉取tomcat镜像
+
+ <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/tomcatImage.png">
+
+ 查看命令
+
+ <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/tomcat2.png">       
+
+2、将镜像拉取到服务器
+
+​     执行上方查询出拉取命令：docker pull tomcat (如果因为网络原因下载不了，请自行参考使用docker加速器)
+
+ <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/tomcatDocker.png">       
+
+3、查看拉取的镜像
+
+​      根据docker images命令查询下载好的镜像为：**daocloud.io/library/tomcat:6.0-jre7**
+
+4、编写yaml文件
+
+- ​      [deployment.yaml](https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/yaml/deployment.yaml)
+
+- ​      [service.yaml](https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/yaml/service.yaml)
+
+  5、将yaml文件放在服务器上，并在此目录下
+
+​         创建deployment：**kubectl create -f deployment.yaml**
+
+​         创建service： **kubectl create -f  service.yaml**
+
+   6、之后可以访问service暴露出来的端口号在浏览器访问：
+
+​        <img src="https://github.com/Bboy-AJ/KubernetesLearning-RoadMap/blob/master/images/view.png">    
+
+​         
+
+​         恭喜你已经学会了如何在kubenetes平台上部署一个简单的项目了。
+
+
+
+# 6、参考
+
+kubenetes官网：https://kubernetes.io/
+
+kubenetes github地址：https://github.com/kubernetes/kubernetes
 
 kubenetes中文社区：http://docs.kubernetes.org.cn/
 
 宋净超：https://jimmysong.io/kubernetes-handbook/
 
+kubenetes之yaml文件：https://blog.csdn.net/phantom_111/article/details/79427144
+
+Grafana安装配置介绍：http://www.ywnds.com/?p=5903

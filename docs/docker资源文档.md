@@ -68,6 +68,7 @@ Docker采用C/S架构模式。
 
 ## 1、Docker安装：
 
+
 以CentOS为例：
 
 使用yum安装已实践）：https://www.w3cschool.cn/docker/centos-docker-install.html
@@ -105,6 +106,8 @@ centos7 ，或者说 redhat 的 docker 的配置文件和其他发行版都不�
 2）vim /etc/sysconfig/docker 然后修改
 OPTIONS='--selinux-enabled --log-driver=journald --registry-mirror=<your address>' 
 （注意：registry-mirror 输入你的镜像地址 ）
+
+
 
 ## 2、Docker命令：
 

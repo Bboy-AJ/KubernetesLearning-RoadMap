@@ -101,7 +101,7 @@ centos7 ，或者说 redhat 的 docker 的配置文件和其他发行版都不�
 第二种：编辑vim /etc/sysconfig/docker 然后修改
 
 OPTIONS='--selinux-enabled --log-driver=journald --registry-mirror=<your address>' 
-（注意：registry-mirror 输入你的镜像地址。需要注册云服务，获取镜像，设置docker加速）
+（注意：registry-mirror 输入你的镜像地址。还需要注册云服务，获取镜像，设置docker加速）
 
 ## 2、设置Docker加速：
 

@@ -9,8 +9,7 @@
 ​	Docker是全球领先的软件容器化平台。官方解释，docker是一个开源项目，可以作为轻量级容器来打包、部署、运行应用。Node.js解释，docker运行用标准单位及所有依赖打包一个应用。但是这些有些抽象，所以我们用现有技术来类比。
 
 ​	Docker 可以粗糙的理解为轻量级的虚拟机，但是Docker不是虚拟机。
-
-![Docker VS VM](C:\Users\王红伟\Desktop\Docker VS VM.png)
+<div align=center><img src="https://raw.githubusercontent.com/12wanghongwei/KubernetesLearning-RoadMap/master/images/Docker VS VM.png"></div>
 
 ​	虚拟机VM上有Hypervisor（虚拟层，虚拟处理硬件），在硬件上安装独立的OS，然后再运行各种各样的应用程序。Docker利用Docker Engine运行应用程序，比虚拟机少了虚拟层，使得程序的启动速度，内存等小很多，所以更轻量。
 
@@ -35,7 +34,7 @@
 
 Docker采用C/S架构模式。
 
-![docker架构](C:\Users\王红伟\Desktop\docker架构.png)
+<div align=center><img src="https://raw.githubusercontent.com/12wanghongwei/KubernetesLearning-RoadMap/master/images/docker架构.png"></div>
 
 ### 4.1Docker容器（Container）
 
@@ -78,9 +77,10 @@ Docker采用C/S架构模式。
 
 使用yum安装已实践）：https://www.w3cschool.cn/docker/centos-docker-install.html
 
+
 可能遇到的问题：
 
-重启docker服务可能出现问题：'overlay'
+1)重启docker服务可能出现问题：'overlay'
 not found as a supported filesystem on thi...t loaded.
 
 解决方法参考：
@@ -88,8 +88,7 @@ not found as a supported filesystem on thi...t loaded.
 https://blog.csdn.net/hongwei15732623364/article/details/80069068
 
 
-
-docker  run 出现问题：TLS handshake timeout
+2)问题：TLS handshake timeout
 
 解决方法：
 
@@ -126,7 +125,7 @@ mkdir -p certs && openssl req \
 
 找到镜像加速器按照命令依次执行即可：
 
-![docker加速](C:\Users\王红伟\Desktop\docker加速.png)
+<div align=center><img src="https://raw.githubusercontent.com/12wanghongwei/KubernetesLearning-RoadMap/master/images/docker加速.png"></div>
 
 ## 3、Docker命令：
 
@@ -150,7 +149,8 @@ mkdir -p certs && openssl req \
 
 4.浏览器中输入：http://ip:8080/ （ip为虚拟机ip）
 
-![tomcat](C:\Users\王红伟\Desktop\tomcat.png)                                                               
+<div align=center><img src="https://raw.githubusercontent.com/12wanghongwei/KubernetesLearning-RoadMap/master/images/tomcat.png"></div>
+                                                         
 
 # 三、资源
 
